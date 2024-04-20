@@ -1,24 +1,44 @@
-import logo from './logo.svg';
+import React, { useRef, useState } from 'react';
 import './App.css';
+import FarmData from './components/FarmData';
+import StreamedVideo from './components/StreamedVideo';
+import ControlPanel from './components/ControlPanel';
+
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/auth';
+import 'firebase/analytics';
+
+//import { useAuthState } from 'react-firebase-hooks/auth';
+//import { useCollectionData } from 'react-firebase-hooks/firestore';
+import { initializeApp } from "firebase/app";
+
+
+//const auth = firebase.auth();
+//const firestore = firebase.firestore();
+//const analytics = firebase.analytics();
+
+//const app = initializeApp(firebaseConfig);
 
 function App() {
+
+//  const db = firebase.firestore();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+
+    <div className='contrainer container-fluid bg-secondary' >
+
+      <StreamedVideo />
+
+      <FarmData tempreture="50" humdity="60" amonia="40" gas="80" />
+
+      <ControlPanel />
+
     </div>
+
+
+  </>
   );
 }
 
